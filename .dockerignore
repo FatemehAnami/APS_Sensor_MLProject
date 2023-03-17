@@ -1,0 +1,11 @@
+artifacts
+logs
+prediction
+saved_models
+notebook
+*.egg-info
+*.egg
+.env
+data_dump.py
+main.py
+README.md

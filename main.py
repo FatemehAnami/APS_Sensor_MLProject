@@ -1,25 +1,19 @@
-import pymongo
+from APS_Sensor.logger import logging
+from APS_Sensor.Exception import SensorException
+from APS_Sensor.Pipeline.TrainingPipeline import start_training_pipeline
+from APS_Sensor.Pipeline.BatchPrediction import start_batch_prediction
 
-# Provide the mongodb localhost url to connect python to mongodb.
-client = pymongo.MongoClient("mongodb://localhost:27017/neurolabDB")
+import os
+import sys
 
-# Database Name
-dataBase = client["neurolabDB"]
+if __name__ == "__main__" :
+    try:
+        logging.info(f"{'==' * 15} Running Project Start...  {'==' * 15}")
+        #start_training_pipeline()
+        file_path = "/config/workspace/Data/aps_failure_test_set.csv"
+        start_batch_prediction(input_file_path = file_path)
 
-# Collection  Name
-collection = dataBase['Products']
+        logging.info(f"{'==' * 15} Running Project finished successfully! {'==' * 15}")
 
-# Sample data
-d = {'companyName': 'iNeuron',
-     'product': 'Affordable AI',
-     'courseOffered': 'Machine Learning with Deployment'}
-
-# Insert above records in the collection
-rec = collection.insert_one(d)
-
-# Lets Verify all the record at once present in the record with all the fields
-all_record = collection.find()
-
-# Printing all records present in the collection
-for idx, record in enumerate(all_record):
-     print(f"{idx}: {record}")
+    except Exception as e:
+       raise SensorException(e, sys)

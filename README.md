@@ -1,6 +1,4 @@
-# neurolab-mongo-python
-
-![image](https://user-images.githubusercontent.com/57321948/196933065-4b16c235-f3b9-4391-9cfe-4affcec87c35.png)
+# APS Sensor Fault Detection
 
 ### Step 1 - Install the requirements
 
@@ -13,3 +11,10 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
+
+### Step 3 - Download dataset
+```bash
+To downlaod dataset run this command in terminal
+wget https://archive.ics.uci.edu/ml/machine-learning-databases/00421/aps_failure_training_set.csv
+```
+
