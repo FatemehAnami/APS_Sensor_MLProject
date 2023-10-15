@@ -11,6 +11,7 @@ wget https://archive.ics.uci.edu/ml/machine-learning-databases/00421/aps_failure
 #### Step 2 - Install the requirements
 ```bash
 pip install -r requirements.txt
+Add connecting information of your Mongodb and AWS in .env file
 ```
 #### Step 3 - Run main.py file
 ```bash
